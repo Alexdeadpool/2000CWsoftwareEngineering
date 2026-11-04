@@ -33,9 +33,18 @@
         android:id="@+id/savedBooking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="107dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="158dp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="122dp"
+        android:layout_height="38dp"
+        android:text="Cancel"
+        app:icon="@android:drawable/btn_dialog"
+        tools:layout_editor_absoluteX="284dp"
+        tools:layout_editor_absoluteY="141dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

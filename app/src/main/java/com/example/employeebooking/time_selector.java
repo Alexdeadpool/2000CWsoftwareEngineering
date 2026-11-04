@@ -64,10 +64,23 @@ public class time_selector extends AppCompatActivity {
         int toMinute = timePickerTo.getMinute();
         String toTime = String.format("%02d:%02d", toHour, toMinute);
 
-        //Save to sharedpreferences so it can be called later on bookings screen
-        String bookingInfo = "Type: " + bookingType + "\nDate: " + selectedDate + "\nFrom: " + fromTime + " Until: " + toTime;
+        //Save as a numbered list (to allow multiple keep Ids unique)
         android.content.SharedPreferences prefs = getSharedPreferences("BookingPrefs", MODE_PRIVATE);
-        prefs.edit().putString("SAVED_BOOKING", bookingInfo).apply();
+        int count = prefs.getInt("BOOKING_COUNT", 0);
+        prefs.edit().putInt("BOOKING_COUNT", count + 1).apply();
+
+        //Generate a random unguessable booking reference (4 billion combinations)
+            String bookingRef = java.util.UUID.randomUUID().toString().substring(0, 8).toUpperCase();
+
+            //with random reference ID
+            String newBooking = "Ref: #" + bookingRef + " | Type: " + bookingType + " | Date: " + selectedDate + " | From: " + fromTime + " Until: " + toTime + "\n\n";
+
+        //Append to existing list and save
+        String currentList = prefs.getString("SAVED_BOOKING", "");
+        String updatedList = currentList + newBooking;
+
+        //Save appended list back to shared preferences
+            prefs.edit().putString("SAVED_BOOKING", updatedList).apply();
 
         //Put all together and log them
         Log.d("BOOKING", "Type: " + bookingType + " | Date: " + selectedDate + " | From: " + fromTime + " | Until: " + toTime);
