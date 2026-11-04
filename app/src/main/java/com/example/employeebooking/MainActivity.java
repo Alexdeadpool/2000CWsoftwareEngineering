@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
         //Find login button
         Button loginButton = findViewById(R.id.login);
 
@@ -32,5 +31,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, employee_dashboard.class);
             startActivity(intent);
         });
+
     }
 }
