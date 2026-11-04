@@ -73,7 +73,7 @@ public class time_selector extends AppCompatActivity {
             String bookingRef = java.util.UUID.randomUUID().toString().substring(0, 8).toUpperCase();
 
             //with random reference ID
-            String newBooking = "Ref: #" + bookingRef + " | Type: " + bookingType + " | Date: " + selectedDate + " | From: " + fromTime + " Until: " + toTime + "\n\n";
+            String newBooking = "Ref: #" + bookingRef + " | Type: " + bookingType + " | Date: " + selectedDate + " | From: " + fromTime + " Until: " + toTime + " " + "Status: unapproved" + "\n\n";
 
         //Append to existing list and save
         String currentList = prefs.getString("SAVED_BOOKING", "");
