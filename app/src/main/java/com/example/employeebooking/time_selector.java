@@ -64,10 +64,15 @@ public class time_selector extends AppCompatActivity {
         int toMinute = timePickerTo.getMinute();
         String toTime = String.format("%02d:%02d", toHour, toMinute);
 
+        //Save to sharedpreferences so it can be called later on bookings screen
+        String bookingInfo = "Type: " + bookingType + "\nDate: " + selectedDate + "\nFrom: " + fromTime + " Until: " + toTime;
+        android.content.SharedPreferences prefs = getSharedPreferences("BookingPrefs", MODE_PRIVATE);
+        prefs.edit().putString("SAVED_BOOKING", bookingInfo).apply();
+
         //Put all together and log them
         Log.d("BOOKING", "Type: " + bookingType + " | Date: " + selectedDate + " | From: " + fromTime + " | Until: " + toTime);
         //show splash text on screen with confirmation
-            Snackbar snackbar = Snackbar.make(findViewById(R.id.main), "Booking confirmed for " + bookingType + " | Date: " + selectedDate + " | From: " + fromTime + " | Until: " + toTime, Snackbar.LENGTH_LONG);
+            Snackbar snackbar = Snackbar.make(findViewById(R.id.main), "Booking requested for " + bookingType + " | Date: " + selectedDate + " | From: " + fromTime + " | Until: " + toTime, Snackbar.LENGTH_LONG);
             snackbar.show();
         });
 

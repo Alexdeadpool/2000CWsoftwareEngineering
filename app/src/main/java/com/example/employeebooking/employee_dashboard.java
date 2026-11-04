@@ -30,5 +30,13 @@ public class employee_dashboard extends AppCompatActivity {
             Intent intent = new Intent(employee_dashboard.this, booking_type.class);
             startActivity(intent);
         });
+        //Find view bookings button
+        Button viewBookingsbutton = findViewById(R.id.viewbookings);
+
+        //onClick event
+        viewBookingsbutton.setOnClickListener(v -> {
+            Intent intent = new Intent(employee_dashboard.this, view_bookings.class);
+            startActivity(intent);
+        });
     }
 }

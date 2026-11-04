@@ -26,11 +26,11 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="69dp"
         android:text="Make a booking"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="@+id/button3" />
+        app:layout_constraintBottom_toTopOf="@+id/viewbookings"
+        app:layout_constraintEnd_toEndOf="@+id/viewbookings" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/viewbookings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="235dp"
