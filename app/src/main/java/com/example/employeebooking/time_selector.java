@@ -14,6 +14,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class time_selector extends AppCompatActivity {
     private String selectedDate = "";
 
@@ -44,7 +46,7 @@ public class time_selector extends AppCompatActivity {
         TimePicker timePickerTo = findViewById(R.id.timePickerto);
         Button confirmButton = findViewById(R.id.button);
 
-        //Set defaullt date to today (fix for error where date doesn't show up)
+        //Set defalt date to today (fix for error where date doesn't show up)
         java.util.Calendar c = java.util.Calendar.getInstance();
         selectedDate = c.get(java.util.Calendar.DAY_OF_MONTH) + "/" + (c.get(java.util.Calendar.MONTH) + 1) + "/" + c.get(java.util.Calendar.YEAR);
         //Store calander date
@@ -65,8 +67,8 @@ public class time_selector extends AppCompatActivity {
         //Put all together and log them
         Log.d("BOOKING", "Type: " + bookingType + " | Date: " + selectedDate + " | From: " + fromTime + " | Until: " + toTime);
         //show splash text on screen with confirmation
-            String message = "Booking confirmed for " + bookingType + " on " + selectedDate + " at " + fromTime;
-            Toast.makeText(time_selector.this, message, Toast.LENGTH_LONG).show();
+            Snackbar snackbar = Snackbar.make(findViewById(R.id.main), "Booking confirmed for " + bookingType + " | Date: " + selectedDate + " | From: " + fromTime + " | Until: " + toTime, Snackbar.LENGTH_LONG);
+            snackbar.show();
         });
 
     }
