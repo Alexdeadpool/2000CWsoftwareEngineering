@@ -38,5 +38,13 @@ public class employee_dashboard extends AppCompatActivity {
             Intent intent = new Intent(employee_dashboard.this, view_bookings.class);
             startActivity(intent);
         });
+        //Find view bookings button
+        Button signoutbutton = findViewById(R.id.signout);
+
+        //onClick event
+        signoutbutton.setOnClickListener(v -> {
+            Intent intent = new Intent(employee_dashboard.this, MainActivity.class);
+            startActivity(intent);
+        });
     }
 }
